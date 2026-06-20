@@ -217,7 +217,7 @@ Developer: Aryan Mishra (aryanmishracodes@gmail.com)
   ] as const;
 
   return (
-    <div className="min-h-screen bg-mesh-gradient-light dark:bg-mesh-gradient animate-mesh bg-grid-pattern text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans pb-32 relative overflow-hidden">
+    <div className="min-h-screen bg-grid-pattern text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans pb-32 relative overflow-hidden">
       
       {/* Dynamic Background Blurring Blobs */}
       <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[45%] bg-brand-500/10 dark:bg-brand-500/5 rounded-full blur-[140px] pointer-events-none animate-pulse-slow"></div>

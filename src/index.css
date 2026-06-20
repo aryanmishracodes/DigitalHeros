@@ -67,27 +67,17 @@
 }
 
 /* Custom background patterns and grids */
-.bg-grid-pattern {
+@utility bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
     linear-gradient(to right, rgba(99, 119, 232, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(99, 119, 232, 0.04) 1px, transparent 1px);
-}
 
-.dark .bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-}
-
-.bg-mesh-gradient {
-  background: linear-gradient(-45deg, #020617, #0b0f19, #1e1b4b, #0d091a);
-  background-size: 400% 400%;
-}
-
-.bg-mesh-gradient-light {
-  background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #eef2ff, #faf5ff);
-  background-size: 400% 400%;
+  &:where(.dark, .dark *) {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
 }
 
 /* Custom transitions and scroll behaviors */
@@ -98,6 +88,17 @@ html {
 body {
   overflow-x: hidden;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  
+  /* Light Mode Background Mesh */
+  background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #eef2ff, #faf5ff);
+  background-size: 400% 400%;
+  animation: mesh 16s ease infinite;
+}
+
+/* Dark Mode Background Mesh */
+html.dark body {
+  background: linear-gradient(-45deg, #020617, #070a14, #120f2b, #030208);
+  background-size: 400% 400%;
 }
 
 /* Premium Scrollbars */
