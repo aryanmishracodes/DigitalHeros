@@ -45,7 +45,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             ref={resolvedRef}
             value={value}
             maxLength={maxLength}
-            className={`w-full pr-10 px-4 py-3 rounded-2xl border bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm outline-none transition-all duration-300 resize-none overflow-hidden text-slate-800 dark:text-slate-100 placeholder-gray-450 dark:placeholder-gray-500 font-sans text-sm focus:bg-white dark:focus:bg-slate-950/80 focus:ring-4 ${
+            className={`w-full pr-10 px-4 py-3 rounded-2xl border bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm outline-none transition-all duration-300 resize-none overflow-hidden text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 font-sans text-sm focus:bg-white dark:focus:bg-slate-950/80 focus:ring-4 ${
               error
                 ? 'border-rose-500/50 focus:border-rose-500 focus:ring-rose-500/10'
                 : 'border-gray-200/80 dark:border-gray-800/80 focus:border-brand-500 focus:ring-brand-500/10 dark:focus:border-brand-400 dark:focus:ring-brand-400/10'
