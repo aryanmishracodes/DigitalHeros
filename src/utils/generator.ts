@@ -1,4 +1,4 @@
-import type { ProjectInput } from '../constants/templates';
+import type { ProjectInput, GeneratorTone } from '../constants/templates';
 import {
   ACTION_VERBS,
   TECH_CATEGORIES,
@@ -59,7 +59,7 @@ export interface GeneratedOutputs {
   keywords: string[];
 }
 
-export function generateResumeContent(input: ProjectInput): GeneratedOutputs {
+export function generateResumeContent(input: ProjectInput, tone: GeneratorTone = 'technical'): GeneratedOutputs {
   const name = cleanString(input.name) || 'Project Sandbox';
   
   // 1. Process Tech Stack
@@ -101,9 +101,9 @@ export function generateResumeContent(input: ProjectInput): GeneratedOutputs {
     const templates = BULLET_TEMPLATES[cat];
     const template = getRandomItem(templates);
     
-    // Select action verb
+    // Select action verb based on Tone
     const verbType = i === 2 ? 'improvement' : 'creation';
-    const verb = getRandomItem(ACTION_VERBS[verbType]);
+    const verb = getRandomItem(ACTION_VERBS[tone][verbType]);
     
     // Select subset of tech stack to keep each bullet unique
     // Bullet 1: Core tech, Bullet 2: Frontend/Backend specific, Bullet 3: Database/Cloud specific

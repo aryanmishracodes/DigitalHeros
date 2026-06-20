@@ -5,24 +5,55 @@ export interface ProjectInput {
   impact: string;
 }
 
-export const ACTION_VERBS = {
-  creation: [
-    'Architected', 'Engineered', 'Designed', 'Developed', 'Spearheaded',
-    'Orchestrated', 'Implemented', 'Built', 'Created', 'Formulated',
-    'Pioneered', 'Constructed', 'Conceptualized', 'Authored'
-  ],
-  improvement: [
-    'Optimized', 'Streamlined', 'Accelerated', 'Enhanced', 'Refactored',
-    'Boosted', 'Reconstructed', 'Maximised', 'Scale-up', 'Modernized',
-    'Revamped', 'Elevated', 'Fine-tuned', 'Leveraged'
-  ],
-  collaboration: [
-    'Led', 'Collaborated on', 'Coordinated', 'Facilitated', 'Partnered on'
-  ],
-  analysis: [
-    'Analyzed', 'Evaluated', 'Identified', 'Diagnosed', 'Synthesized',
-    'Extracted', 'Validated', 'Modelled'
-  ]
+export const TONES = {
+  technical: 'Technical/Developer',
+  leadership: 'Executive/Leadership',
+  results: 'Results-Oriented'
+};
+
+export type GeneratorTone = 'technical' | 'leadership' | 'results';
+
+export const ACTION_VERBS: Record<GeneratorTone, { creation: string[]; improvement: string[]; analysis: string[] }> = {
+  technical: {
+    creation: [
+      'Architected', 'Engineered', 'Programmed', 'Configured', 'Compiled',
+      'Synthesized', 'Orchestrated', 'Implemented', 'Built', 'Coded',
+      'Authored', 'Refactored', 'Structured', 'Integrated'
+    ],
+    improvement: [
+      'Refactored', 'Optimized', 'Debugged', 'Tuned', 'Accelerated',
+      'Automated', 'Normalized', 'Consolidated', 'Standardized', 'Upgraded'
+    ],
+    analysis: [
+      'Parsed', 'Modeled', 'Mapped', 'Traced', 'Diagnosed', 'Validated', 'Analyzed'
+    ]
+  },
+  leadership: {
+    creation: [
+      'Spearheaded', 'Pioneered', 'Orchestrated', 'Guided', 'Formulated',
+      'Designed', 'Launched', 'Delegated', 'Created', 'Founded', 'Executed'
+    ],
+    improvement: [
+      'Revamped', 'Modernized', 'Redesigned', 'Transformed', 'Elevated',
+      'Cultivated', 'Strengthened', 'Reorganized', 'Fostered'
+    ],
+    analysis: [
+      'Evaluated', 'Strategized', 'Assessed', 'Identified', 'Facilitated'
+    ]
+  },
+  results: {
+    creation: [
+      'Developed', 'Established', 'Delivered', 'Deployed', 'Constructed',
+      'Executed', 'Integrated', 'Secured', 'Completed', 'Engineered'
+    ],
+    improvement: [
+      'Optimized', 'Streamlined', 'Accelerated', 'Boosted', 'Maximized',
+      'Reduced', 'Minimized', 'Expanded', 'Amplified', 'Enhanced'
+    ],
+    analysis: [
+      'Quantified', 'Audited', 'Monitored', 'Measured', 'Proven', 'Extracted'
+    ]
+  }
 };
 
 export const TECH_CATEGORIES: Record<string, string[]> = {

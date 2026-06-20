@@ -23,6 +23,7 @@
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-slide-in: slide-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animate-mesh: mesh 16s ease infinite;
 
   @keyframes glow {
     0%, 100% {
@@ -54,21 +55,39 @@
       transform: translateY(0) scale(1);
     }
   }
+
+  @keyframes mesh {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
 }
 
-/* Custom Glassmorphism Utilities */
-.glass-card-dark {
-  background: rgba(17, 24, 39, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Custom background patterns and grids */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 119, 232, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 119, 232, 0.04) 1px, transparent 1px);
 }
 
-.glass-card-light {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.bg-mesh-gradient {
+  background: linear-gradient(-45deg, #020617, #0b0f19, #1e1b4b, #0d091a);
+  background-size: 400% 400%;
+}
+
+.bg-mesh-gradient-light {
+  background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #eef2ff, #faf5ff);
+  background-size: 400% 400%;
 }
 
 /* Custom transitions and scroll behaviors */
@@ -81,6 +100,21 @@ body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
+/* Premium Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 119, 232, 0.15);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 119, 232, 0.35);
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -88,11 +122,11 @@ body {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Custom selection */
+/* Custom selection styling */
 ::selection {
   background-color: var(--color-brand-500);
   color: white;
